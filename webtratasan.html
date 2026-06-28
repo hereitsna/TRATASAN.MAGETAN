@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Explore Tratasan</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <style>
+      * {
+        margin: 0;
+
+        padding: 0;
+
+        box-sizing: border-box;
+
+        font-family: "Poppins", sans-serif;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: #f5f5f5;
+
+        overflow-x: hidden;
+      }
+
+      /* NAVBAR */
+
+      header {
+        position: fixed;
+
+        top: 0;
+
+        width: 100%;
+
+        z-index: 1000;
+
+        transition: 0.4s;
+      }
+
+      header.active {
+        background: rgba(0, 0, 0, 0.85);
+
+        backdrop-filter: blur(10px);
+      }
+
+      nav {
+        width: 90%;
+
+        margin: auto;
+
+        padding: 20px 0;
+
+        display: flex;
+
+        justify-content: space-between;
+
+        align-items: center;
+      }
+
+      .logo {
+        color: white;
+
+        font-size: 30px;
+
+        font-weight: 700;
+
+        letter-spacing: 2px;
+      }
+
+      nav ul {
+        display: flex;
+
+        list-style: none;
+
+        gap: 40px;
+      }
+
+      nav ul li a {
+        color: white;
+
+        text-decoration: none;
+
+        font-weight: 500;
+      }
+
+      /* HERO */
+
+      .hero {
+        height: 100vh;
+
+        background: url("images/contoh lampu sel surya.jpg");
+
+        background-size: cover;
+
+        background-position: center;
+
+        position: relative;
+      }
+
+      .overlay {
+        position: absolute;
+
+        inset: 0;
+
+        background: rgba(0, 0, 0, 0.45);
+      }
+
+      .hero-content {
+        position: absolute;
+
+        top: 50%;
+
+        left: 10%;
+
+        transform: translateY(-50%);
+
+        color: white;
+
+        max-width: 650px;
+      }
+
+      .hero-content h3 {
+        font-size: 28px;
+
+        font-weight: 500;
+      }
+
+      .hero-content h1 {
+        font-size: 90px;
+
+        line-height: 90px;
+
+        color: #ffd600;
+
+        margin: 10px 0;
+
+        font-weight: 800;
+      }
+
+      .hero-content p {
+        margin: 20px 0;
+
+        line-height: 1.8;
+      }
+
+      .btn {
+        padding: 15px 40px;
+
+        border-radius: 50px;
+
+        border: 2px solid white;
+
+        color: white;
+
+        background: transparent;
+
+        cursor: pointer;
+
+        font-size: 16px;
+
+        transition: 0.3s;
+      }
+
+      .btn:hover {
+        background: white;
+
+        color: black;
+      }
+
+      /* SEARCH */
+
+      .feature-section {
+        margin-top: -70px;
+
+        position: relative;
+
+        z-index: 100;
+
+        padding: 0 8%;
+      }
+
+      .feature-box {
+        background: white;
+
+        border-radius: 30px;
+
+        display: grid;
+
+        grid-template-columns: repeat(4, 1fr);
+
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+
+        overflow: hidden;
+      }
+
+      .feature-item {
+        padding: 35px 25px;
+
+        text-align: center;
+
+        border-right: 1px solid #eee;
+      }
+
+      .feature-item:last-child {
+        border-right: none;
+      }
+
+      .icon {
+        width: 70px;
+
+        height: 70px;
+
+        background: #f5f5f5;
+
+        border-radius: 50%;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        margin: auto;
+
+        margin-bottom: 20px;
+      }
+
+      .icon i {
+        font-size: 30px;
+
+        color: #2e7d32;
+      }
+
+      .feature-item h3 {
+        margin-bottom: 10px;
+
+        color: #222;
+      }
+
+      .feature-item p {
+        color: #666;
+
+        font-size: 15px;
+
+        line-height: 1.7;
+      }
+
+      @media (max-width: 900px) {
+        .feature-box {
+          grid-template-columns: 1fr;
+        }
+
+        .feature-item {
+          border-right: none;
+
+          border-bottom: 1px solid #eee;
+        }
+      }
+
+      /* DESTINATION */
+
+      .destination {
+        padding: 100px 8%;
+
+        text-align: center;
+      }
+
+      .destination h2 {
+        font-size: 42px;
+
+        margin-bottom: 10px;
+      }
+
+      .destination p {
+        color: #666;
+      }
+
+      .cards {
+        display: grid;
+
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+        justify-content: center;
+
+        gap: 30px;
+
+        margin-top: 50px;
+      }
+
+      .card {
+        width: 100%;
+
+        background: white;
+
+        border-radius: 25px;
+
+        overflow: hidden;
+
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+
+        transition: 0.4s;
+      }
+
+      .card:hover {
+        transform: translateY(-10px);
+      }
+
+      .card img {
+        width: 100%;
+
+        height: 250px;
+
+        object-fit: cover;
+      }
+
+      .card-content {
+        padding: 20px;
+      }
+
+      .card-content h3 {
+        margin-bottom: 10px;
+      }
+
+      .rating {
+        color: gold;
+
+        margin-bottom: 10px;
+      }
+
+      .book-btn {
+        background: #2e7d32;
+
+        color: white;
+
+        border: none;
+
+        padding: 12px 25px;
+
+        border-radius: 30px;
+
+        cursor: pointer;
+      }
+      @media (max-width: 992px) {
+        .cards {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .cards {
+          grid-template-columns: 1fr;
+        }
+      }
+      /* WHY CHOOSE US */
+
+      .why {
+        padding: 120px 8%;
+
+        background: url("images/IMG_3638.jpg");
+
+        background-size: cover;
+
+        background-position: center;
+
+        position: relative;
+
+        color: white;
+      }
+
+      .why::before {
+        content: "";
+
+        position: absolute;
+
+        inset: 0;
+
+        background: rgba(0, 0, 0, 0.55);
+      }
+
+      .why-content {
+        position: relative;
+
+        z-index: 2;
+
+        text-align: center;
+      }
+
+      .why-content h4 {
+        letter-spacing: 3px;
+      }
+
+      .why-content h2 {
+        color: #ffd600;
+
+        font-size: 40px;
+
+        margin-bottom: 50px;
+      }
+
+      .why-cards {
+        display: flex;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+
+        gap: 30px;
+      }
+
+      .why-card {
+        width: 250px;
+
+        background: rgba(255, 255, 255, 0.15);
+
+        backdrop-filter: blur(8px);
+
+        border-radius: 25px;
+
+        padding: 40px 20px;
+      }
+
+      .why-card i {
+        font-size: 45px;
+
+        margin-bottom: 20px;
+      }
+
+      /* GALLERY */
+
+      .gallery {
+        padding: 100px 8%;
+
+        text-align: center;
+      }
+
+      .gallery h2 {
+        margin-bottom: 40px;
+
+        font-size: 40px;
+      }
+
+      .gallery-grid {
+        display: grid;
+
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+        gap: 20px;
+      }
+
+      .gallery-grid img {
+        width: 100%;
+
+        height: 250px;
+
+        object-fit: cover;
+
+        border-radius: 20px;
+
+        transition: 0.4s;
+      }
+
+      .gallery-grid img:hover {
+        transform: scale(1.05);
+      }
+      /* ================================= */
+
+      /* ACCESS & TRAVEL INFORMATION */
+
+      /* ================================= */
+
+      .access-section {
+        padding: 100px 8%;
+
+        background: #f8f8f5;
+      }
+
+      .section-icon {
+        font-size: 45px;
+        color: #2e7d32;
+        margin-bottom: 20px;
+      }
+
+      .tree-left {
+        position: absolute;
+        left: -40px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #b7cfb0;
+        font-size: 60px;
+      }
+
+      .tree-right {
+        position: absolute;
+        right: -40px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #b7cfb0;
+        font-size: 60px;
+      }
+
+      .section-title {
+        position: relative;
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+      .section-title h2 {
+        font-size: 42px;
+
+        color: #222;
+      }
+
+      .section-title p {
+        color: #777;
+
+        margin-top: 10px;
+      }
+
+      .access-grid {
+        display: grid;
+
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 30px;
+      }
+
+      .info-card {
+        background: #fff;
+
+        border-radius: 20px;
+
+        padding: 30px;
+
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+
+        transition: 0.35s;
+
+        position: relative;
+
+        overflow: hidden;
+      }
+      .info-card: :hover {
+        transform: translateY(-10px);
+      }
+
+      .info-card::after {
+        content: "";
+
+        width: 140px;
+
+        height: 140px;
+
+        position: absolute;
+
+        right: -30px;
+
+        bottom: -30px;
+
+        border: 4px dashed #d9ead8;
+
+        border-radius: 50%;
+      }
+
+      .info-card h3 {
+        margin-bottom: 25px;
+
+        color: #2e7d32;
+      }
+      .info-card h3::after {
+        content: "";
+
+        display: block;
+
+        width: 50px;
+
+        height: 3px;
+
+        background: #2e7d32;
+
+        margin-top: 10px;
+      }
+      .info-item {
+        display: flex;
+
+        gap: 18px;
+
+        margin-bottom: 25px;
+      }
+
+      .info-item i {
+        width: 65px;
+
+        height: 65px;
+
+        border-radius: 50%;
+
+        background: #2e7d32;
+
+        color: white;
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+        font-size: 26px;
+
+        flex-shrink: 0;
+      }
+
+      .info-item h4 {
+        margin-bottom: 6px;
+      }
+
+      .info-item p {
+        color: #666;
+
+        font-size: 15px;
+
+        line-height: 1.7;
+      }
+
+      /* reservation */
+
+      .reserve-flow {
+        margin-top: 70px;
+
+        background: white;
+
+        border-radius: 25px;
+
+        padding: 35px;
+
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .reserve-flow h3 {
+        text-align: center;
+
+        margin-bottom: 40px;
+
+        color: #2e7d32;
+      }
+
+      .flow-grid {
+        display: grid;
+
+        grid-template-columns: repeat(4, 1fr);
+
+        gap: 25px;
+      }
+
+      .flow-card {
+        text-align: center;
+      }
+
+      .step-number {
+        width: 50px;
+
+        height: 50px;
+
+        background: #2e7d32;
+
+        color: white;
+
+        border-radius: 50%;
+
+        margin: auto;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        font-weight: bold;
+
+        margin-bottom: 15px;
+      }
+
+      .flow-card i {
+        font-size: 34px;
+
+        color: #2e7d32;
+
+        margin-bottom: 15px;
+      }
+
+      .flow-card h4 {
+        margin-bottom: 10px;
+      }
+
+      .flow-card p {
+        color: #666;
+
+        font-size: 14px;
+      }
+
+      /* contact */
+
+      .contact-bar {
+        margin-top: 60px;
+
+        background: #0f2415;
+
+        border-radius: 20px;
+
+        color: white;
+
+        display: grid;
+
+        grid-template-columns: repeat(4, 1fr);
+
+        overflow: hidden;
+      }
+
+      .contact-box {
+        padding: 25px;
+
+        text-align: center;
+
+        border-right: 1px solid rgba(255, 255, 255, 0.15);
+      }
+
+      .contact-box:last-child {
+        border: none;
+      }
+
+      .contact-box i {
+        font-size: 28px;
+
+        margin-bottom: 12px;
+
+        color: #9be49f;
+      }
+
+      .contact-box h4 {
+        margin-bottom: 8px;
+      }
+
+      .contact-box p {
+        font-size: 14px;
+      }
+
+      /* Responsive */
+
+      @media (max-width: 992px) {
+        .access-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .flow-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .contact-bar {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .flow-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .contact-bar {
+          grid-template-columns: 1fr;
+        }
+      }
+      /* FOOTER */
+
+      footer {
+        background: #111;
+
+        color: white;
+
+        text-align: center;
+
+        padding: 50px 20px;
+      }
+
+      footer h3 {
+        margin-bottom: 15px;
+      }
+
+      .social {
+        margin-top: 20px;
+      }
+
+      .social i {
+        font-size: 25px;
+
+        margin: 0 10px;
+
+        cursor: pointer;
+      }
+
+      /* RESPONSIVE */
+
+      @media (max-width: 900px) {
+        .hero-content h1 {
+          font-size: 60px;
+
+          line-height: 60px;
+        }
+
+        .search-box {
+          grid-template-columns: 1fr;
+        }
+
+        nav ul {
+          gap: 15px;
+        }
+
+        .logo {
+          font-size: 22px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header id="navbar">
+      <nav>
+        <div class="logo">TRATASAN.MAGETAN</div>
+
+        <ul>
+          <li><a href="#">Home</a></li>
+
+          <li><a href="#destination">Facilities</a></li>
+
+          <li><a href="#gallery">Gallery</a></li>
+
+          <li><a href="#access">Access & Travel</a></li>
+
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="overlay"></div>
+
+      <div class="hero-content">
+        <h3>WELCOME TO</h3>
+
+        <h1>BUMI PERKEMAHAN TRATASAN</h1>
+
+        <p>Jelajahi keindahan alam Bumi Perkemahan Tratasan, spot camping terbaik, dan wisata alam Magetan yang memukau.</p>
+
+        <button class="btn">Explore Now</button>
+      </div>
+    </section>
+
+    <section class="feature-section">
+      <div class="feature-box">
+        <div class="feature-item">
+          <div class="icon">
+            <i class="fa-solid fa-tree"></i>
+          </div>
+
+          <h3>Alam yang Asri</h3>
+
+          <p>Dikelilingi hutan pinus yang sejuk dan udara pegunungan yang segar.</p>
+        </div>
+
+        <div class="feature-item">
+          <div class="icon">
+            <i class="fa-solid fa-campground"></i>
+          </div>
+
+          <h3>Fasilitas Lengkap</h3>
+
+          <p>Tersedia area camping, toilet, mushola, gazebo, dan area parkir.</p>
+        </div>
+
+        <div class="feature-item">
+          <div class="icon">
+            <i class="fa-solid fa-users"></i>
+          </div>
+
+          <h3>Kegiatan Edukatif</h3>
+
+          <p>Cocok untuk outbound, pramuka, gathering, dan edukasi lingkungan.</p>
+        </div>
+
+        <div class="feature-item">
+          <div class="icon">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+
+          <h3>Aman & Nyaman</h3>
+
+          <p>Area wisata dikelola dengan baik sehingga nyaman untuk seluruh pengunjung.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="destination" id="destination">
+      <h2>Our Facilities</h2>
+
+      <p>Berbagai fasilitas lengkap untuk mendukung kenyamanan dan pengalaman terbaik Anda di Bumi Perkemahan Tratasan.</p>
+
+      <!--Card 1-->
+      <div class="cards">
+        <div class="card">
+          <img src="images/IMG_4617.jpg" />
+
+          <div class="card-content">
+            <h3>Bumi Perkemahan Tratasan</h3>
+
+            <div class="rating">★★★★★</div>
+
+            <p>Camping ground dengan panorama pegunungan yang sejuk.</p>
+
+            <br />
+
+            <button class="book-btn">Lihat Detail</button>
+          </div>
+        </div>
+
+        <!--Card 2-->
+        <div class="card">
+          <img src="images/IMG_4608.jpg" />
+
+          <div class="card-content">
+            <h3>Kamar Mandi & Toilet</h3>
+
+            <div class="rating">★★★★★</div>
+
+            <p>Bersih, terawat, dan mudah diakses.</p>
+
+            <br />
+
+            <button class="book-btn">Lihat Detail</button>
+          </div>
+        </div>
+
+        <!--Card 3-->
+        <div class="card">
+          <img src="images/IMG_3642.jpg" />
+
+          <div class="card-content">
+            <h3>Gazebo</h3>
+
+            <div class="rating">★★★★★</div>
+
+            <p>Tempat berteduh dan bersantai bersama.</p>
+
+            <br />
+
+            <button class="book-btn">Lihat Detail</button>
+          </div>
+        </div>
+
+        <!--Card 4-->
+        <div class="card">
+          <img src="images/IMG_3630.jpg" />
+
+          <div class="card-content">
+            <h3>Mushola</h3>
+
+            <div class="rating">★★★★★</div>
+
+            <p>Tersedia mushola yang bersih dan nyaman untuk beribadah.</p>
+
+            <br />
+
+            <button class="book-btn">Lihat Detail</button>
+          </div>
+        </div>
+
+        <!--Card 5-->
+        <div class="card">
+          <img src="images/parkir area.jpeg" />
+
+          <div class="card-content">
+            <h3>Parkiran</h3>
+
+            <div class="rating">★★★★★</div>
+
+            <p>Area parkir yang luas, aman, dan mudah diakses untuk kendaraan roda dua maupun roda empat.</p>
+
+            <br />
+
+            <button class="book-btn">Lihat Detail</button>
+          </div>
+        </div>
+
+        <!--Card 6-->
+        <div class="card">
+          <img src="images/air bersih.jpeg" />
+
+          <div class="card-content">
+            <h3>Air Bersih</h3>
+
+            <div class="rating">★★★★★</div>
+
+            <p>Tersedia air bersih setiap saat.</p>
+
+            <br />
+
+            <button class="book-btn">Lihat Detail</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="why">
+      <div class="why-content">
+        <h4>DESTINATION</h4>
+
+        <h2>WHY CHOOSE US</h2>
+
+        <div class="why-cards">
+          <div class="why-card">
+            <i class="fas fa-star"></i>
+
+            <h3>Wisata Pilihan</h3>
+          </div>
+
+          <div class="why-card">
+            <i class="fas fa-earth-asia"></i>
+
+            <h3>Pelayanan Terbaik</h3>
+          </div>
+
+          <div class="why-card">
+            <i class="fas fa-wallet"></i>
+
+            <h3>Harga Terjangkau</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+      <h2>Gallery</h2>
+
+      <div class="gallery-grid">
+        <img src="images/1.jpeg" />
+
+        <img src="images/2.jpeg" />
+
+        <img src="images/3.jpeg" />
+
+        <img src="images/contoh lampu sel surya.jpg" />
+
+        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470" />
+
+        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b" />
+      </div>
+    </section>
+    <section class="access-section" id="access">
+      <div class="section-title">
+        <i class="fas fa-mountain section-icon"></i>
+        <i class="fas fa-tree tree-left"></i>
+        <i class="fas fa-tree tree-right"></i>
+        <h2>Access & Travel Information</h2>
+
+        <p>Informasi akses menuju Bumi Perkemahan Tratasan serta tata cara reservasi.</p>
+      </div>
+
+      <div class="access-grid">
+        <!-- Kolom 1 -->
+
+        <div class="info-card">
+          <h3>Akses Jalan</h3>
+
+          <div class="info-item">
+            <i class="fas fa-road"></i>
+
+            <div>
+              <h4>Kendaraan Pribadi</h4>
+
+              <p>Dapat diakses menggunakan mobil maupun sepeda motor melalui jalan utama menuju Desa Puntukdoro.</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <i class="fas fa-map-marker-alt"></i>
+
+            <div>
+              <h4>Lokasi</h4>
+
+              <p>Bumi Perkemahan Tratasan, Desa Puntukdoro, Kecamatan Plaosan, Kabupaten Magetan.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kolom 2 -->
+
+        <div class="info-card">
+          <h3>Rekomendasi Perjalanan</h3>
+
+          <div class="info-item">
+            <i class="fas fa-car"></i>
+
+            <div>
+              <h4>Dari Magetan</h4>
+
+              <p>± 30 menit melalui Plaosan menuju Puntukdoro.</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <i class="fas fa-bus"></i>
+
+            <div>
+              <h4>Dari Madiun</h4>
+
+              <p>± 1,5 jam perjalanan menggunakan kendaraan pribadi atau bus.</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <i class="fas fa-mountain"></i>
+
+            <div>
+              <h4>Pemandangan Alam</h4>
+
+              <p>Nikmati panorama pegunungan dan hutan pinus sepanjang perjalanan.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kolom 3 -->
+
+        <div class="info-card">
+          <h3>Cara Reservasi</h3>
+
+          <div class="info-item">
+            <i class="fas fa-phone"></i>
+
+            <div>
+              <h4>Hubungi Pengelola</h4>
+
+              <p>Melalui WhatsApp atau telepon.</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <i class="fas fa-calendar-check"></i>
+
+            <div>
+              <h4>Tentukan Jadwal</h4>
+
+              <p>Pilih tanggal kunjungan dan jumlah peserta.</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <i class="fas fa-circle-check"></i>
+
+            <div>
+              <h4>Konfirmasi</h4>
+
+              <p>Reservasi dikonfirmasi oleh pengelola.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Langkah -->
+
+      <div class="reserve-flow">
+        <h3>Langkah Reservasi</h3>
+
+        <div class="flow-grid">
+          <div class="flow-card">
+            <div class="step-number">1</div>
+
+            <i class="fas fa-comments"></i>
+
+            <h4>Hubungi Kami</h4>
+
+            <p>WhatsApp atau Telepon.</p>
+          </div>
+
+          <div class="flow-card">
+            <div class="step-number">2</div>
+
+            <i class="fas fa-calendar-alt"></i>
+
+            <h4>Tentukan Jadwal</h4>
+
+            <p>Pilih tanggal dan jumlah peserta.</p>
+          </div>
+
+          <div class="flow-card">
+            <div class="step-number">3</div>
+
+            <i class="fas fa-file-circle-check"></i>
+
+            <h4>Konfirmasi</h4>
+
+            <p>Pengelola mengkonfirmasi reservasi.</p>
+          </div>
+
+          <div class="flow-card">
+            <div class="step-number">4</div>
+
+            <i class="fas fa-campground"></i>
+
+            <h4>Selamat Berkemah</h4>
+
+            <p>Nikmati pengalaman camping di Tratasan.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact -->
+
+      <div class="contact-bar">
+        <div class="contact-box">
+          <i class="fab fa-whatsapp"></i>
+
+          <h4>WhatsApp</h4>
+
+          <p>08xxxxxxxxxx</p>
+        </div>
+
+        <div class="contact-box">
+          <i class="fas fa-phone"></i>
+
+          <h4>Telepon</h4>
+
+          <p>(0351) xxxxxx</p>
+        </div>
+
+        <div class="contact-box">
+          <i class="fas fa-envelope"></i>
+
+          <h4>Email</h4>
+
+          <p>tratasan@gmail.com</p>
+        </div>
+
+        <div class="contact-box">
+          <i class="fas fa-clock"></i>
+
+          <h4>Jam Operasional</h4>
+
+          <p>07.00 - 17.00 WIB</p>
+        </div>
+      </div>
+    </section>
+
+    <footer id="contact">
+      <h3>Explore Tratasan</h3>
+
+      <p>Website Bumi Perkemahan Tratasan</p>
+
+      <div class="social">
+        <i class="fab fa-instagram"></i>
+
+        <i class="fab fa-facebook"></i>
+
+        <i class="fab fa-youtube"></i>
+      </div>
+    </footer>
+
+    <script>
+      window.addEventListener("scroll", () => {
+        const navbar = document.getElementById("navbar");
+
+        if (window.scrollY > 50) {
+          navbar.classList.add("active");
+        } else {
+          navbar.classList.remove("active");
+        }
+      });
+    </script>
+  </body>
+</html>
